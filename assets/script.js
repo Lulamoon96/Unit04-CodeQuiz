@@ -1,7 +1,7 @@
-
 $("#beginQuiz").on("click", function() {
 
     $("#landing-page").css("display", "none")
+    $("#quiz-page").css("display", "block")
 
     var secondsLeft = 60
 
