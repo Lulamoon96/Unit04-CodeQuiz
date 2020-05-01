@@ -1,36 +1,62 @@
 //Array to store the questions and answers for the quiz
+//This is an array of objects
+//Each object has 3 main keys: question, answers, and correctAnswer
+//answers is another object which contains the answers
 const questions = [
 
   {
-    question: "What kiled the dinosaurs?",
+    question: "Commonly used data types DO NOT include:",
     answers: {
-      a: "Douglas Adams",
-      b: "Princess Beach",
-      c: "Arnold Schwarzenegger",
-      d: "THE ICE AGE"
+      a: "Strings",
+      b: "Booleans",
+      c: "Alerts",
+      d: "Numbers"
+    },
+    correctAnswer: "c"
+  },
+
+  {
+    question: "The condition in an if / else statement is enclosed within ____.",
+    answers: {
+      a: "Quotes",
+      b: "Curly brackets",
+      c: "Parentheses",
+      d: "Square brackets"
+    },
+    correctAnswer: "c"
+  },
+
+  {
+    question: "Arrays in JavaScript can be used to store ____.",
+    answers: {
+      a: "Numbers and strings",
+      b: "Other arrays",
+      c: "Booleans",
+      d: "All Options"
     },
     correctAnswer: "d"
   },
 
   {
-    question: "What is Love?",
+    question: "String values must be enclosed within ____ when being assigned to variables.",
     answers: {
-      a: "Baby don't hurt me",
-      b: "A miserable pile of secrets and lies",
-      c: "Something I don't get"
+      a: "Commas",
+      b: "Quotes",
+      c: "Curly brackets",
+      d: "Parentheses"
+    },
+    correctAnswer: "b"
+  },
+  
+  {
+    question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+    answers: {
+      a: "Console Logging",
+      b: "JavaScript",
+      c: "Terminal / bash",
+      d: "For loops"
     },
     correctAnswer: "a"
-  },
-
-  {
-    question: "What is the answer to life, the universe, and everything?",
-    answers: {
-      a: "Unconditional love",
-      b: "Pokemon",
-      c: "42",
-      d: "ur mum lol"
-    },
-    correctAnswer: "c"
   },
 
 ]
@@ -194,4 +220,39 @@ function nextQues() {
   renderAns(currQues)
 }
 
+//Debug Questions
+// const questions = [
 
+//   {
+//     question: "What kiled the dinosaurs?",
+//     answers: {
+//       a: "Douglas Adams",
+//       b: "Princess Beach",
+//       c: "Arnold Schwarzenegger",
+//       d: "THE ICE AGE"
+//     },
+//     correctAnswer: "d"
+//   },
+
+//   {
+//     question: "What is Love?",
+//     answers: {
+//       a: "Baby don't hurt me",
+//       b: "A miserable pile of secrets and lies",
+//       c: "Something I don't get"
+//     },
+//     correctAnswer: "a"
+//   },
+
+//   {
+//     question: "What is the answer to life, the universe, and everything?",
+//     answers: {
+//       a: "Unconditional love",
+//       b: "Pokemon",
+//       c: "42",
+//       d: "ur mum lol"
+//     },
+//     correctAnswer: "c"
+//   },
+
+// ]
