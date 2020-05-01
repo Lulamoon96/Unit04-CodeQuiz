@@ -1,3 +1,10 @@
+.score-top {
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+}
+
 .separator {
 
     padding: 10px;
@@ -10,15 +17,24 @@
     
 }
 
-#landing-page {
-
-    text-align: center;
-    
-}
-
 #quiz-page {
 
     display: none;
     text-align: center;
+
+}
+
+.correctness {
+
+    color: grey;
+    font-style: italic;
+    opacity: 0.6;
+    display: none;
+
+}
+
+.answer-button {
+
+    padding: 10px;
 
 }
