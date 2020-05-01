@@ -24,6 +24,20 @@
 
 }
 
+#gameover-page {
+
+    display: none;
+    text-align: center;
+
+}
+
+#answer-box {
+
+    list-style-type: none;
+    text-align: left;
+
+}
+
 .correctness {
 
     color: grey;
@@ -37,4 +51,10 @@
 
     padding: 10px;
 
+}
+
+.form-control {
+
+    text-align: center;
+    
 }
