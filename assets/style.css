@@ -34,7 +34,14 @@
 #answer-box {
 
     list-style-type: none;
-    text-align: left;
+    text-align: justify;
+
+}
+
+#score-box {
+
+    list-style-type: none;
+    text-align: center;
 
 }
 

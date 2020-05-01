@@ -59,20 +59,45 @@ const questions = [
     correctAnswer: "a"
   },
 
+  {
+    question: "Tabs or spaces?",
+    answers: {
+      a: "Tabs",
+      b: "Spaces"
+    },
+    correctAnswer: "a"
+  },
+
+  {
+    question: "Which one of these languages would be considered a core of the World Wide Web?",
+    answers: {
+      a: "Neko",
+      b: "Python",
+      c: "Java",
+      d: "HTML"
+    },
+    correctAnswer: "d"
+  },
+
 ]
 
 //I needed to make the timer globally accessible
 var timerInterval = ""
-var secondsLeft = 60
+var secondsLeft = 30
 
 //Random starting question, which will become the first current question
 var startQues = questions[getRandomInt(questions.length)]
 var currQues = startQues
 
 //Making the answerBox globally accessible, and adding listeners to it
+//Also ensures the listener is only added if the answerBox currently exists on screen
 var answerBox = document.getElementById("answer-box") 
-answerBox.addEventListener("click", answerClick);
+if (answerBox) {
+  answerBox.addEventListener("click", answerClick);
+}
 
+//Getting the scoreList out of storage
+var scoreList = JSON.parse(localStorage.getItem("scores"))
 
 //Sets the timer and begins the quiz
 $("#beginQuiz").on("click", function() {
@@ -88,7 +113,7 @@ $("#beginQuiz").on("click", function() {
 
         $("#quiz-timer").text("Time Left: " + secondsLeft)
     
-        if(secondsLeft === 0) {
+        if(secondsLeft <= 0) {
 
           clearInterval(timerInterval)
           alert("Out of time!")
@@ -106,9 +131,25 @@ $("#beginQuiz").on("click", function() {
 $("#submitButton").on("click", function(){
 
   event.preventDefault()
+
+  //Gets the initials of the user
+  var initial = document.getElementById("initialText").value.trim()
+
+  //Sets the scoreList var to a new array in case no scores exist yet to avoid errors
+  if (scoreList === null){
+    scoreList = []
+  }
+
+  //Adds a score object to the array and stores it in local storage
+  scoreList.push({"player":initial, "score":secondsLeft})
+  localStorage.setItem("scores", JSON.stringify(scoreList))
+
+  //Redirects to the high scores page
   self.location="scores.html"
 
 })
+
+
 
 // Method for generating a random number between 0 and max
 function getRandomInt(max) {
@@ -121,12 +162,11 @@ function getRandomInt(max) {
 //Array is shuffled so that the answers are never in the same place
 function renderAns(question) {
 
-  var answerList = Object.keys(question.answers)
-  shuffleArray(answerList)
+  var answerList = question["answers"]
 
-  answerList.forEach(function(key) {
+  Object.keys(answerList).forEach(function(key) {
 
-    $("#answer-box").append('<li class="answer-button"><button type="button" class="btn btn-primary" id="' + key + '">' + question.answers[key] + '</button></li>')
+    $("#answer-box").append('<li class="answer-button"><button type="button" class="btn btn-primary" id="' + key + '">' + answerList[key] + '</button></li>')
 
   })
 
@@ -218,7 +258,9 @@ function nextQues() {
   $("#answer-box").empty()
   $("#question").html(currQues.question)
   renderAns(currQues)
+
 }
+
 
 //Debug Questions
 // const questions = [
